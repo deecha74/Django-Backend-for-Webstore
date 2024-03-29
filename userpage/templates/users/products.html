@@ -1,0 +1,30 @@
+{% extends 'layouts.html' %}
+{% load static %}
+
+{% block title %}
+  <title>E-commerce All Product</title>
+{% endblock %}
+
+{% block main_content %}
+  {% include 'users/header.html' %}
+
+  {% comment %}start of product section{% endcomment %}
+  <div class="container-fluid mt-2">
+    <div class="row row-cols-1 row-cols-md-4 g-4">
+      {% for item in product %}
+        <div class="col">
+          <div class="card">
+            <img src="/{{ item.product_image }} " class="card-img-top" alt="{{ item.product_name }}" height="200" />
+            <div class="card-body">
+              <h5 class="card-title">{{ item.product_name }}</h5>
+              <h5>Rs {{ item.product_price }}</h5>
+              <a href="/productdetails/{{ item.id }}" class="btn btn-success">View Details</a>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  {% include 'users/footer.html' %}
+{% endblock %}

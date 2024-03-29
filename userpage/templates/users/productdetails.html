@@ -1,0 +1,29 @@
+{% extends 'layouts.html' %}
+{% load static %}
+
+{% block title %}
+  <title>Product Details</title>
+{% endblock %}
+
+{% block main_content %}
+  {% include 'users/header.html' %}
+  <div class="card mb-3" style="max-width: 540px;">
+    <div class="row g-0">
+      <div class="col-md-4">
+        <img src="/{{ product.product_image }}" class="img-fluid rounded-start" alt="{{ product_name }}" />
+      </div>
+       
+        <div class="card-body">
+          <h5 class="card-title">{{ product.product_name }}</h5>
+          <p class="card-text">{{ product.product_description }}</p>
+          <h3>Rs{{ product.product_price }}</h3>
+          <h3>Available Stock : {{ product.stock }}</h3>
+          <h4>Category : {{ product.product_category }}</h4>
+          <a href="" class="btn btn-success">Buy Now </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {% include 'users/footer.html' %}
+{% endblock %}

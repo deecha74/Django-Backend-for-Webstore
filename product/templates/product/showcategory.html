@@ -1,0 +1,30 @@
+{% extends 'layouts.html' %}
+{% load static %}
+{% block title %}
+  <title>Add Product</title>
+{% endblock %}
+
+{% block main_content %}
+  <div class="container m-5">
+    <div class="row d-flex justify-content-center">
+      <div class="col-md-6">
+        <table class="table table-bodered border-dark taple-striped">
+          <tr>
+            <th>Category Name</th>
+            <th>Action</th>
+          </tr>
+
+          {% for c in category %}
+            <tr>
+              <td>{{ c.category_name }}</td>
+              <td>
+                <a href="/products/updatecategory/{{ c.id }}" class="btn btn-primary">Edit</a>
+                <a href="/products/deletecategory/{{ c.id }}" class="btn btn-danger" onclick="return confirm('Are You sure ?')"><i class="fa-solid fa-trash"></i></a>
+              </td>
+            </tr>
+          {% endfor %}
+        </table>
+      </div>
+    </div>
+  </div>
+{% endblock %}
